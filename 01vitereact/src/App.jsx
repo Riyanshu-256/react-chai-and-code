@@ -1,5 +1,12 @@
+import Chai from "./chai";
+
 function App() {
-  return <h1>Vite Heyyyy Riyanshu Sharma</h1>;
+  return (
+    <>
+      <Chai />
+      <p>Kaisi h???</p>
+    </>
+  );
 }
 
 export default App;
