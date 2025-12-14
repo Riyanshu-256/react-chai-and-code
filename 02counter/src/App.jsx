@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/*
+ useState is a React Hook that allows functional components to use state (data that can change over time).
+When the state changes, React automatically updates (re-renders) the UI. 
+*/
 
+// Import the useState hook from React
+import { useState } from "react";
+
+// Import CSS file for styling
+import "./App.css";
+
+// Main App component
 function App() {
-  const [count, setCount] = useState(0)
+  // Create a state variable called counter
+  // counter → current value
+  // setCounter → function to update the counter
+  // Initial value is 15
+  const [counter, setCounter] = useState(15);
 
+  // This function runs when the "Add value" button is clicked
+  const addValue = () => {
+    // Log a message in the console (for debugging)
+    console.log("clicked", Math.random());
+
+    // Increase the counter value by 1
+    setCounter(counter + 1);
+  };
+
+  // This function runs when the "Remove value" button is clicked
+  const removeValue = () => {
+    // Decrease the counter value by 1
+    setCounter(counter - 1);
+  };
+
+  // JSX returned by the component (UI)
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* Main heading */}
+      <h1>Chai aur React</h1>
+
+      {/* Display current counter value */}
+      <h2>Counter Value: {counter}</h2>
+
+      {/* This button is responsible for counter increase */}
+      <button onClick={addValue}>Add value {counter}</button>
+
+      <br />
+
+      {/* This button is responsible for counter decrease */}
+      <button onClick={removeValue}>Remove value {counter}</button>
     </>
-  )
+  );
 }
 
-export default App
+// Export the App component so it can be used in other files
+export default App;
